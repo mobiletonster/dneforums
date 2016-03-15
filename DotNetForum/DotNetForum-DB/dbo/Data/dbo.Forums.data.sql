@@ -1,0 +1,6 @@
+SET IDENTITY_INSERT [dbo].[Forums] ON
+INSERT INTO [dbo].[Forums] ([ForumId], [ForumName], [ForumDescription], [ForumPresenters], [ForumDate], [CreatedDate], [ModifiedDate]) VALUES (1, N'2015 November Forum', N'Never been a better time to be a .Net engineer', N'Tony Spencer', N'2015-11-04 00:00:00', N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[Forums] ([ForumId], [ForumName], [ForumDescription], [ForumPresenters], [ForumDate], [CreatedDate], [ModifiedDate]) VALUES (2, N'2015 December Forum', N'Get down with Git and TFS', N'Dan Woodruff, David Reuckert', N'2015-12-09 00:00:00', N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[Forums] ([ForumId], [ForumName], [ForumDescription], [ForumPresenters], [ForumDate], [CreatedDate], [ModifiedDate]) VALUES (3, N'2016 January Forum', N'Microsoft Technologies', N'Dave McKinstry', N'2016-01-27 00:00:00', N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[Forums] ([ForumId], [ForumName], [ForumDescription], [ForumPresenters], [ForumDate], [CreatedDate], [ModifiedDate]) VALUES (4, N'2016 February Forum', N'Entity Framework', N'Tony Spencer', N'2016-02-25 00:00:00', N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+SET IDENTITY_INSERT [dbo].[Forums] OFF

@@ -1,0 +1,6 @@
+INSERT INTO [dbo].[UserTalents] ([UserId], [TalentId], [TalentProficiency], [CreatedDate], [ModifiedDate]) VALUES (1, 1, 4, N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[UserTalents] ([UserId], [TalentId], [TalentProficiency], [CreatedDate], [ModifiedDate]) VALUES (1, 2, 2, N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[UserTalents] ([UserId], [TalentId], [TalentProficiency], [CreatedDate], [ModifiedDate]) VALUES (2, 4, 4, N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[UserTalents] ([UserId], [TalentId], [TalentProficiency], [CreatedDate], [ModifiedDate]) VALUES (3, 7, 5, N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[UserTalents] ([UserId], [TalentId], [TalentProficiency], [CreatedDate], [ModifiedDate]) VALUES (4, 1, 5, N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
+INSERT INTO [dbo].[UserTalents] ([UserId], [TalentId], [TalentProficiency], [CreatedDate], [ModifiedDate]) VALUES (4, 2, 3, N'2016-02-24 00:00:00', N'2016-02-24 00:00:00')
