@@ -1,4 +1,4 @@
-namespace App.Data
+namespace App.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,8 @@ namespace App.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("UserTalentVW")]
-    public partial class UserTalentVW
+    [Table("UserConnectionVW")]
+    public partial class UserConnectionVW
     {
         [Key]
         [Column(Order = 0)]
@@ -20,20 +20,26 @@ namespace App.Data
         [StringLength(50)]
         public string FirstName { get; set; }
 
+        public DateTime? BirthDate { get; set; }
+
         [StringLength(50)]
         public string LastName { get; set; }
+
+        [StringLength(100)]
+        public string Email { get; set; }
+
+        [StringLength(100)]
+        public string TypeName { get; set; }
+
+        [StringLength(250)]
+        public string TypeDescription { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int TalentId { get; set; }
+        public int TypeId { get; set; }
 
         [StringLength(100)]
-        public string TalentName { get; set; }
-
-        [StringLength(250)]
-        public string TalentDescription { get; set; }
-
-        public int? TalentProficiency { get; set; }
+        public string Handle { get; set; }
     }
 }

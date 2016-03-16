@@ -1,4 +1,4 @@
-namespace App.Data
+namespace App.Models
 {
     using System;
     using System.Collections.Generic;

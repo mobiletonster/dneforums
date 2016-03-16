@@ -4,6 +4,7 @@ namespace App.Data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using App.Models;
 
     public partial class ForumContext : DbContext
     {

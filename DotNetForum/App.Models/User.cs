@@ -1,4 +1,4 @@
-namespace App.Data
+namespace App.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,27 +6,29 @@ namespace App.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Forums")]
-    public partial class Forum
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Forum()
+        public User()
         {
             Attendances = new HashSet<Attendance>();
         }
 
-        public int ForumId { get; set; }
+        public int UserId { get; set; }
 
         [StringLength(100)]
-        public string ForumName { get; set; }
+        public string UserName { get; set; }
 
-        [StringLength(250)]
-        public string ForumDescription { get; set; }
+        [StringLength(50)]
+        public string FirstName { get; set; }
 
-        [StringLength(250)]
-        public string ForumPresenters { get; set; }
+        [StringLength(50)]
+        public string LastName { get; set; }
 
-        public DateTime? ForumDate { get; set; }
+        public DateTime? BirthDate { get; set; }
+
+        [StringLength(100)]
+        public string Email { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

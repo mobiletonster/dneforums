@@ -1,4 +1,4 @@
-namespace App.Data
+namespace App.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,17 +6,15 @@ namespace App.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ConnectionType")]
-    public partial class ConnectionType
+    public partial class Talent
     {
-        [Key]
-        public int TypeId { get; set; }
+        public int TalentId { get; set; }
 
         [StringLength(100)]
-        public string TypeName { get; set; }
+        public string TalentName { get; set; }
 
         [StringLength(250)]
-        public string TypeDescription { get; set; }
+        public string TalentDescription { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

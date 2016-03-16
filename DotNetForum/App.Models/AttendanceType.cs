@@ -1,4 +1,4 @@
-namespace App.Data
+namespace App.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,20 +6,17 @@ namespace App.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Connection
+    [Table("AttendanceType")]
+    public partial class AttendanceType
     {
         [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int UserId { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TypeId { get; set; }
 
         [StringLength(100)]
-        public string Handle { get; set; }
+        public string TypeName { get; set; }
+
+        [StringLength(250)]
+        public string TypeDescription { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

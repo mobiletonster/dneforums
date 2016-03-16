@@ -1,4 +1,4 @@
-namespace App.Data
+namespace App.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,27 +6,22 @@ namespace App.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Attendance")]
-    public partial class Attendance
+    public partial class UserTalent
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ForumId { get; set; }
+        public int UserId { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int UserId { get; set; }
+        public int TalentId { get; set; }
 
-        public int? AttendanceTypeId { get; set; }
+        public int? TalentProficiency { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? ModifiedDate { get; set; }
-
-        public virtual Forum Forum { get; set; }
-
-        public virtual User User { get; set; }
     }
 }
