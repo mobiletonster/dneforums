@@ -22,6 +22,10 @@ namespace App.Data
         IQueryable<User> GetUsers();
         IQueryable<UserTalent> GetUserTalents();
         IQueryable<UserTalentVW> GetUserTalentVW();
+
+        object AddRecord(object entity);
+        object UpdateRecord(object entity);
+        bool DeleteRecord(object entity);
     }
 
     public class Repository : IRepository, IDisposable
@@ -161,6 +165,34 @@ namespace App.Data
                 dbEntity.State = EntityState.Detached;
             }
             return dbEntity.Entity;
+        }
+
+        public bool DeleteRecord(object entity)
+        {
+            var dbEntity = _context.Entry(entity);
+            dbEntity.State = EntityState.Deleted;
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                string errMessage = string.Empty;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validErr in validationErrors.ValidationErrors)
+                    {
+                        errMessage += string.Format("Property: {0} Error:{1}", validErr.PropertyName, validErr.ErrorMessage);
+                    }
+
+                }
+                throw new Exception(errMessage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return true;
         }
         #endregion
 

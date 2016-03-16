@@ -68,5 +68,19 @@ namespace App.Data
         {
             throw new NotImplementedException();
         }
+
+        public object UpdateRecord(object entity)
+        {
+            throw new NotImplementedException();
+        }
+        public object AddRecord(object entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteRecord(object entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

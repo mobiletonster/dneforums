@@ -1,5 +1,6 @@
 ﻿using App.Data;
 using App.Models;
+using App.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +13,78 @@ namespace App.Con
     {
         static void Main(string[] args)
         {
-
             TestMockRepo();
-
             BlankLine();
-
             TestRealRepo();
-
             BlankLine();
-
             LoadAttendances();
 
-            
+            BlankLine();
+            GetUsers();
+
+            BlankLine();
+            DeleteUser();
+
+            BlankLine();
+            GetUsers();
+
+            BlankLine();
+            CreateUser();
+
+            BlankLine();
+            GetUsers();
+
+            BlankLine();
+            ChangePassword();
+
+            BlankLine();
+            GetUsers();
 
             Console.ReadKey();
         }
 
+        private static void GetUsers()
+        {
+            Console.WriteLine("Fetching users...");
+            var userService = new UserService();
+            var users = userService.GetUsers();
+            foreach(var u in users)
+            {
+                Console.WriteLine(u.UserId + " " + u.FullName + " " + u.Password);
+            }
+
+        }
+
+        private static void CreateUser()
+        {
+            Console.WriteLine("Creating new user...");
+            var userService = new UserService();
+            var user = new User();
+            user.FirstName = "Bob";
+            user.LastName = "Tabor";
+            user.Password = "password1";
+            user.UserName = "bob.tabor";
+            user.BirthDate = DateTime.Parse("1971-03-15");
+            user.CreatedDate = DateTime.Now;
+            user.ModifiedDate = user.CreatedDate;
+
+            userService.CreateUser(user);
+        }
+        private static void DeleteUser()
+        {
+            Console.WriteLine("Deleting bob tabor...");
+            var userService = new UserService();
+            userService.DeleteUser("bob.tabor");
+
+        }
+
+        private static void ChangePassword()
+        {
+            Console.WriteLine("Changing bob tabor's password...");
+            var userService = new UserService();
+            var user = userService.GetUserByUsername("bob.tabor");
+            var result = userService.ChangePassword(user.UserId, "password1", "gReet1ngs!");
+        }
         private static void BlankLine()
         {
             Console.WriteLine();
