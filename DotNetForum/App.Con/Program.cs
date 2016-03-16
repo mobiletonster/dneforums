@@ -12,6 +12,52 @@ namespace App.Con
     {
         static void Main(string[] args)
         {
+
+            TestMockRepo();
+
+            BlankLine();
+
+            TestRealRepo();
+
+            BlankLine();
+
+            LoadAttendances();
+
+            
+
+            Console.ReadKey();
+        }
+
+        private static void BlankLine()
+        {
+            Console.WriteLine();
+        }
+        private static void TestMockRepo()
+        {
+            Console.WriteLine("Fetching data from mock repo...");
+            var repository = new MockRepository();
+            FetchAttendanceTypes(repository);
+        }
+
+        private static void TestRealRepo()
+        {
+            Console.WriteLine("Fetching data from real repo...");
+            var repository = new Repository();
+            FetchAttendanceTypes(repository);
+        }
+
+        private static void FetchAttendanceTypes(IRepository repository)
+        {
+            var att = repository.GetAttendanceTypes().ToList();
+            foreach (var at in att)
+            {
+                Console.WriteLine(at.TypeName);
+            }
+        }
+
+        private static void LoadAttendances()
+        {
+            Console.WriteLine("Load Attendances..");
             var context = new ForumContext();
             //context.Database.Log = s => Console.WriteLine(s);
             var users = context.Users.Include("Attendances").ToList();
@@ -26,8 +72,6 @@ namespace App.Con
             {
                 Console.WriteLine(j.FirstName);
             }
-
-            Console.ReadKey();
         }
     }
 }

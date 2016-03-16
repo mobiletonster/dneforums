@@ -11,11 +11,22 @@ namespace App.Data
         public ForumContext()
             : base("name=ForumContext")
         {
-            this.Database.Log = s =>
+
+        }
+
+        // This constructor was added manually after reverse engineer and will be lost
+        // if reverse engineer is re-run.
+        // consider moving it to a seperate partial class file.
+        public ForumContext(bool withLogging):base("name=ForumContext")
+        {
+            if (withLogging)
             {
-                System.Diagnostics.Debug.WriteLine(s);
-                Console.WriteLine(s);
-            };
+                this.Database.Log = s =>
+                {
+                    System.Diagnostics.Debug.WriteLine(s);
+                    Console.WriteLine(s);
+                };
+            }
         }
 
         public virtual DbSet<Attendance> Attendances { get; set; }
