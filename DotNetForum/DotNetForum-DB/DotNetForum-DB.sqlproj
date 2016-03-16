@@ -71,6 +71,7 @@
     <None Include="dbo\Data\dbo.Talents.data.sql" />
     <None Include="dbo\Data\dbo.Users.data.sql" />
     <None Include="dbo\Data\dbo.UserTalents.data.sql" />
+    <None Include="dbo\Data\LoadData.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Attendance.sql" />
