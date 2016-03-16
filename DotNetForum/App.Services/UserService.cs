@@ -97,6 +97,16 @@ namespace App.Services
             return false;
         }
 
+        public bool Authenticate(string userName, string password)
+        {
+            var user = this.GetUserByUsername(userName);
+            if (Crypto.ComparePassword(password, user.Password))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

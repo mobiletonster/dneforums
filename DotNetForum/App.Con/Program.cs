@@ -14,30 +14,27 @@ namespace App.Con
         static void Main(string[] args)
         {
             TestMockRepo();
-            BlankLine();
+
             TestRealRepo();
-            BlankLine();
+
             LoadAttendances();
 
-            BlankLine();
             GetUsers();
 
-            BlankLine();
             DeleteUser();
 
-            BlankLine();
             GetUsers();
 
-            BlankLine();
             CreateUser();
 
-            BlankLine();
             GetUsers();
 
-            BlankLine();
+            Authenticate();
+
             ChangePassword();
 
-            BlankLine();
+            Authenticate();
+
             GetUsers();
 
             Console.ReadKey();
@@ -45,6 +42,7 @@ namespace App.Con
 
         private static void GetUsers()
         {
+            BlankLine();
             Console.WriteLine("Fetching users...");
             var userService = new UserService();
             var users = userService.GetUsers();
@@ -54,9 +52,9 @@ namespace App.Con
             }
 
         }
-
         private static void CreateUser()
         {
+            BlankLine();
             Console.WriteLine("Creating new user...");
             var userService = new UserService();
             var user = new User();
@@ -72,14 +70,23 @@ namespace App.Con
         }
         private static void DeleteUser()
         {
+            BlankLine();
             Console.WriteLine("Deleting bob tabor...");
             var userService = new UserService();
             userService.DeleteUser("bob.tabor");
 
         }
-
+        private static void Authenticate()
+        {
+            BlankLine();
+            Console.WriteLine("Authenticate Bob");
+            var userService = new UserService();
+            var result = userService.Authenticate("bob.tabor", "gReet1ngs!");
+            Console.WriteLine("user authentication result: " + result);
+        }
         private static void ChangePassword()
         {
+            BlankLine();
             Console.WriteLine("Changing bob tabor's password...");
             var userService = new UserService();
             var user = userService.GetUserByUsername("bob.tabor");
@@ -91,18 +98,18 @@ namespace App.Con
         }
         private static void TestMockRepo()
         {
+            BlankLine();
             Console.WriteLine("Fetching data from mock repo...");
             var repository = new MockRepository();
             FetchAttendanceTypes(repository);
         }
-
         private static void TestRealRepo()
         {
+            BlankLine();
             Console.WriteLine("Fetching data from real repo...");
             var repository = new Repository();
             FetchAttendanceTypes(repository);
         }
-
         private static void FetchAttendanceTypes(IRepository repository)
         {
             var att = repository.GetAttendanceTypes().ToList();
@@ -111,9 +118,9 @@ namespace App.Con
                 Console.WriteLine(at.TypeName);
             }
         }
-
         private static void LoadAttendances()
         {
+            BlankLine();
             Console.WriteLine("Load Attendances..");
             var context = new ForumContext();
             //context.Database.Log = s => Console.WriteLine(s);
