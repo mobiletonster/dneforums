@@ -75,11 +75,6 @@ namespace App.Data
                 .Property(e => e.ForumPresenters)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Forum>()
-                .HasMany(e => e.Attendances)
-                .WithRequired(e => e.Forum)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Talent>()
                 .Property(e => e.TalentName)
                 .IsUnicode(false);
@@ -103,11 +98,6 @@ namespace App.Data
             modelBuilder.Entity<User>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Attendances)
-                .WithRequired(e => e.User)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ForumAttendanceVW>()
                 .Property(e => e.ForumName)
