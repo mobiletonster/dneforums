@@ -20,9 +20,10 @@ namespace App.Web.Controllers
 
         [Route("api/users")]
         [HttpGet]
-        public string Get()
+        public List<User> Get()
         {
-            return "Tony Spencer";
+            var users = userService.GetUsers();
+            return users;
         }
 
         [Route("api/users/{userId}")]
