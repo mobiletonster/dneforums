@@ -112,6 +112,5 @@ namespace App.Services
             return Authenticate(creds.Username, creds.Password);
         }
 
-
     }
 }
