@@ -1,6 +1,6 @@
-﻿using App.Data;
+﻿using App.Core.Security;
+using App.Data;
 using App.Models;
-using App.Services.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
