@@ -9,7 +9,6 @@ using System.Net;
 using System.Text;
 using System.Security.Principal;
 using System.Threading;
-using App.Data.Models;
 using App.Core.Security;
 using System.Web.Http;
 

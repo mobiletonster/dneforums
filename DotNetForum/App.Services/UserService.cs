@@ -54,6 +54,8 @@ namespace App.Services
 
             // encrypt their password.
             user.Password = Crypto.EncryptPassword(user.Password);
+            user.CreatedDate = DateTime.Now;
+            user.ModifiedDate = DateTime.Now;
 
             // The database will assign a userid, we will
             // get the newUser with userid back and return it.
@@ -100,11 +102,16 @@ namespace App.Services
         public bool Authenticate(string userName, string password)
         {
             var user = this.GetUserByUsername(userName);
-            if (Crypto.ComparePassword(password, user.Password))
+            if (user!=null && Crypto.ComparePassword(password, user.Password))
             {
                 return true;
             }
             return false;
+        }
+
+        public bool Authenticate(Credentials creds)
+        {
+            return Authenticate(creds.Username, creds.Password);
         }
 
 

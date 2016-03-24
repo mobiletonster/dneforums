@@ -177,6 +177,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{b4179fd1-a75d-4e21-bc65-7f084b1c8f4e}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Models\App.Models.csproj">
       <Project>{e3a46dce-9441-4bec-b854-fc3c9b96a349}</Project>
       <Name>App.Models</Name>
