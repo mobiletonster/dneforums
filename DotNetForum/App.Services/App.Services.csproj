@@ -41,10 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\Crypto.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{b4179fd1-a75d-4e21-bc65-7f084b1c8f4e}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Data\App.Data.csproj">
       <Project>{b387f380-08ce-4889-b84c-89b943d8f82a}</Project>
       <Name>App.Data</Name>
