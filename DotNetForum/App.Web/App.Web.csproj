@@ -158,6 +158,8 @@
     <Compile Include="Handlers\RequestTraceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthAttribute.cs" />
+    <Compile Include="Security\BasicAuthAttribute.cs" />
+    <Compile Include="Security\ClientAuthAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
