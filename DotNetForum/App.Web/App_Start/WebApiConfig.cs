@@ -14,12 +14,13 @@ namespace App.Web
         {
             // Web API configuration and services
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            config.Formatters.Add(new CSVMediaTypeFormatter());
 
+            config.Formatters.Add(new CSVMediaTypeFormatter());
 
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
-            var cors = new EnableCorsAttribute("*", "*", "GET,POST");
+            var cors = new EnableCorsAttribute("*","*","GET,POST");            
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

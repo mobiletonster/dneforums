@@ -1,5 +1,8 @@
-﻿using App.Models;
+﻿using App.Core.Security;
+using App.Models;
+using App.Models.ViewModels;
 using App.Services;
+using App.Web.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,30 +24,39 @@ namespace App.Web.Controllers
 
         [Route("api/users")]
         [HttpGet]
-        [ResponseType(typeof(List<User>))]
-        public IHttpActionResult GetUsers()
+        [ResponseType(typeof(List<UserVM>))]
+        public IHttpActionResult Get()
         {
-            var users = userService.GetUsers();
+            var users = userService.GetUsers().Select(m => new UserVM(m)).ToList();
             return Ok(users);
-        }
-
-
-        [Route("api/users")]
-        [HttpPost]
-        public IHttpActionResult Post( User user)
-        {
-            var userName = user.FirstName + "@ldschurch.org";
-            return Ok(userName);
         }
 
         [Route("api/users/{userId}")]
         [HttpGet]
+        [Auth]
         public User GetUserById(int userId)
         {
             var user = userService.GetUserById(userId);
             return user;
         }
 
+        [ApiExplorerSettings(IgnoreApi =true)]
+        [Route("api/users")]
+        [HttpPost]
+        [ResponseType(typeof(UserVM))]
+        public IHttpActionResult CreateUser([FromBody]User user)
+        {
+            var newUser = userService.CreateUser(user);
+            var userVM = new UserVM(newUser);
+            return Created("/api/users", userVM);
+        }
 
+        [Route("api/users/authenticate")]
+        [HttpPost]
+        public IHttpActionResult AuthenticateUser([FromBody]Credentials creds)
+        {
+            bool isValid = userService.Authenticate(creds);
+            return Ok(isValid);
+        }
     }
 }
